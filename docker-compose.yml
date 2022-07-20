@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  recipe_api:
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./recipe_api:/recipe_api
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
